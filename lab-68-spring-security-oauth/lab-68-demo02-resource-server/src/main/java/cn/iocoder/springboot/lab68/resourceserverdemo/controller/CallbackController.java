@@ -22,6 +22,13 @@ public class CallbackController {
     @Value("${security.oauth2.access-token-uri}")
     private String accessTokenUri;
 
+    /**
+     * 登录回调
+     * 通过授权码访问资源服务器获取认证token
+     *
+     * @param code 授权码
+     * @return OAuth2AccessToken
+     */
     @GetMapping("/callback")
     public OAuth2AccessToken login(@RequestParam("code") String code) {
         // 创建 AuthorizationCodeResourceDetails 对象
